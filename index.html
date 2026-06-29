@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How Income Shapes 311 Complaints in New York</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Libraries for the map scrollytelling section -->
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.0.4/scrollama.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+  </head>
+
+  <body>
+    <header class="cover">
+      <img class="cover-image" src="coverphoto.svg" />
+
+      <div class="cover-text">
+        <h1>How Income Shapes 311 Complaints in New York City</h1>
+        <p class="dek">
+          Combining one year of New York City's 311 service requests with income
+          data reveals how complaint rates and the issues residents report vary
+          across the city.
+        </p>
+
+        <p class="byline">By Ananya Chaba · June 2026</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="article-section intro-section">
+        <p>
+          When I first moved to New York for the <a href =https://ledeprogram.com>Lede Program</a>, the city’s
+          unofficial welcoming committee consisted of rats darting out of trash
+          cans and scurrying through the streets. Over the following weeks, the
+          neighbourhood slowly introduced itself. My apartment's hot water
+          stopped working without warning, trash cans without lids spilled
+          garbage onto the sidewalks. And at night, noise from street parties
+          carried all the way up to my fifth-floor walk-up.
+        </p>
+
+        <p>
+          Most issues eventually resolved themselves, or simply became part of
+          the background noise of living in New York. But they left me
+          wondering: could I have known what issues were common in my
+          neighborhood before moving in? That question led me to New York City's
+          <a href = https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9/about_data>311 service request data</a>.
+        </p>
+
+        <p>
+          Launched in 2003, 311 is New York City's non-emergency service.
+          Residents use it to report problems ranging from rats and loud parties
+          to heating failures and illegal parking. Requests are routed to the
+          relevant city agency, which is responsible for investigating and
+          responding. Here's a snapshot of the complaints New Yorkers file most
+          often.
+        </p>
+
+        <img class="article-image" src="table1.svg" alt="Table placeholder" />
+
+        <section class="complaint-card" aria-labelledby="complaint-card-title">
+          <div class="complaint-card-header">
+            <div>
+              <p class="card-label">What does this complaint mean?</p>
+            </div>
+            <p class="complaint-counter">
+              <span id="complaintIndex">1</span> /
+              <span id="complaintTotal">10</span>
+            </p>
+          </div>
+
+          <div class="complaint-content">
+            <h3 id="complaintTitle">Parking and Vehicles</h3>
+            <p id="complaintDescription">
+              Mostly reports of illegally parked vehicles (70%), followed by
+              blocked driveways (20%) and abandoned or severely damaged vehicles
+              (10%).
+            </p>
+          </div>
+
+          <div class="complaint-controls">
+            <button
+              id="prevComplaint"
+              type="button"
+              aria-label="Previous complaint"
+            >
+              ← Previous
+            </button>
+            <button
+              id="nextComplaint"
+              type="button"
+              aria-label="Next complaint"
+            >
+              Next →
+            </button>
+          </div>
+        </section>
+      </section>
+
+      <section class="article-section">
+        <p>
+          Looking through the data made me wonder what 311 complaints reveal
+          most: the problems a neighborhood faces, or the people who are most
+          likely to report them. For instance, do wealthier neighborhoods use 311 differently because residents are more likely to know about, trust, or use the system? Or do complaints mainly reflect the conditions residents experience?
+        </p>
+      </section>
+
+      <section id="scrolly-map" class="scrolly side-by-side">
+        <div class="sticky-thing">
+          <div class="image-holder">
+            <img
+              id="mapPhoto"
+              class="photoDiv"
+              src="map1.svg"
+              alt="Map showing 311 complaint rates by ZIP code"
+            />
+          </div>
+        </div>
+
+        <div class="scrolly-overlay">
+          <div class="step" id="map-step1">
+            <p>
+              New Yorkers don't file 311 requests at the same rate. After
+              adjusting for population, complaint rates still vary substantially
+              across the city. At first glance, the map doesn't reveal a simple
+              rich-versus-poor story. Some of the <strong>highest complaint rates appear
+              in the northwest Bronx</strong>, while others cluster in <strong>affluent Lower
+              Manhattan.</strong>
+            </p>
+          </div>
+
+          <div class="step" id="map-step2">
+            <p>
+              Household income also varies sharply across New York City's ZIP
+              codes. Some areas of Lower Manhattan have median household incomes
+              exceeding $200,000, while parts of the Bronx have median household
+              incomes below $70,000. Does that translate into different rates of
+              reporting problems through 311?
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-header">
+        Does income shape <strong>how much</strong> a neighborhood complains?
+      </section>
+
+      <section class="article-section">
+        <p>
+          To explore this, I grouped all New York City ZIP codes into four
+          income groups based on median household income in that ZIP code. For each ZIP code, I
+          calculated the number of 311 requests per 100,000 residents before
+          comparing complaint rates across income groups.
+        </p>
+      </section>
+
+      <section class="article-section">
+        <figure class="figure-block">
+          <img
+            class="article-image"
+            src="barchart1.svg"
+            alt="Bar chart showing 311 complaint rates by income group"
+          />
+        </figure>
+
+        <p>
+          <strong>Higher income was not associated with substantially more complaints.</strong>
+          In fact, ZIP codes in the lowest-income group reported slightly more
+          311 requests per resident than those in the highest-income group in the last year. ZIP codes in the lower-middle income group
+          filed complaints at almost exactly the same rate as those in the
+          highest-income group.
+        </p>
+
+        <p>
+          That suggests household income alone does not explain how often
+          residents file 311 requests. Differences in complaint rates could
+          reflect varying levels of reporting, differences in underlying
+          neighborhood conditions, or a combination of both. This analysis
+          cannot distinguish between those explanations.
+        </p>
+      </section>
+
+      <section class="section-header">
+        Does income shape <strong>what</strong> a neighborhood complains about?
+      </section>
+
+      <section class="article-section">
+        <p>
+          Complaint volume is only part of the story. I also wanted to know
+          whether higher- and lower-income ZIP codes were reporting different
+          kinds of problems. Rats, broken heating, overflowing trash cans, loud
+          parties—were these the problems all New Yorkers report, or are they
+          concentrated in certain neighborhoods?
+        </p>
+      </section>
+
+      <section class="wide-section">
+        <div class="chart-pair">
+          <figure>
+            <img
+              src="barchart2.svg"
+              alt="Bar chart showing complaint categories in lower-income ZIP codes"
+            />
+          </figure>
+
+          <figure>
+            <img
+              src="barchart3.svg"
+              alt="Bar chart showing complaint categories in higher-income ZIP codes"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="article-section">
+        <p>
+          <strong>Across every income group, the three most common categories remain
+          remarkably consistent</strong>: noise, parking and vehicle issues, and
+          drainage, water, and plumbing.
+        </p>
+
+        <p>
+          The biggest difference is in housing-related complaints. Lower-income
+          ZIP codes filed nearly twice as many drainage, water, and plumbing
+          complaints as the highest-income ZIP codes in the last year. They also devoted a larger
+          share of complaints to unsanitary conditions (8% versus 5%),
+          suggesting poorer housing and sanitation issues are more common
+          concerns.
+        </p>
+
+        <p>
+          Some complaint categories were concentrated almost entirely in
+          higher-income ZIP codes, including vendor enforcement, helicopter
+          noise, homeless person assistance, encampments, and for-hire vehicle
+          complaints. Lower-income ZIP codes, meanwhile, reported relatively more
+          problems involving deteriorating housing and infrastructure, including
+          paint and plaster, broken doors and windows, electrical issues, and
+          traffic signals.
+        </p>
+
+        <p>
+          While income has little relationship with how often people file
+          reports, it says much more about the kinds of problems they're asking
+          the city to solve.
+        </p>
+      </section>
+
+      <section class="project-note">
+        <h2>About this project</h2>
+        <p>
+          This project was developed as part of the 2026 Lede Program at
+          Columbia University. 311 service request data were obtained from the
+          New York City Open Data portal and include requests filed between June
+          2025 and June 2026. Median household income and population estimates
+          come from the American Community Survey (ACS) 5-Year Estimates,
+          conducted by the U.S. Census Bureau. A detailed description of the
+          methodology, data processing, and analysis is available in the GitHub
+          repository.
+        </p>
+      </section>
+    </main>
+
+    <script>
+      /* Map scrollytelling section */
+      d3.select("#map-step1").on("stepin", function () {
+        d3.select("#mapPhoto").attr("src", "map1.svg");
+      });
+
+      d3.select("#map-step2").on("stepin", function () {
+        d3.select("#mapPhoto").attr("src", "map2.svg");
+      });
+    </script>
+
+    <script>
+      /* Scrollama setup */
+      const scroller = scrollama();
+
+      scroller
+        .setup({
+          step: ".scrolly .scrolly-overlay .step",
+          offset: 0.55,
+          debug: false,
+        })
+        .onStepEnter(function ({ element, direction }) {
+          const event = new CustomEvent("stepin", {
+            detail: { direction: direction },
+          });
+          element.dispatchEvent(event);
+        })
+        .onStepExit(function ({ element, direction }) {
+          const event = new CustomEvent("stepout", {
+            detail: { direction: direction },
+          });
+          element.dispatchEvent(event);
+        });
+
+      window.addEventListener("resize", scroller.resize);
+    </script>
+
+    <script>
+      /* Complaint glossary toggle */
+      const complaints = [
+        {
+          title: "Parking and Vehicles",
+          description:
+            "Mostly reports of illegally parked vehicles (70%), followed by blocked driveways (20%) and abandoned or severely damaged vehicles (10%).",
+        },
+        {
+          title: "Noise",
+          description:
+            "Mostly residential noise complaints, including loud music, parties, televisions, and shouting (56%), followed by street and sidewalk noise (22%). The remainder involves commercial or vehicle noise.",
+        },
+        {
+          title: "Drainage, Water, and Plumbing",
+          description:
+            "Mostly reports of missing heat or hot water (60%), followed by water system issues such as hydrants or water pressure (14%), plumbing problems (13%), and smaller numbers of sewer and leak complaints.",
+        },
+        {
+          title: "Dirty and Unsanitary Conditions",
+          description:
+            "Primarily reports of mice, cockroaches, termites, and mold, which together account for roughly 80% of complaints in this category. The remainder includes sewage problems, bed bugs, and missing trash containers.",
+        },
+        {
+          title: "Street Conditions",
+          description:
+            "Mostly reports of potholes (63%), followed by cave-ins (12%), defective street hardware (5%), and smaller issues such as cracked pavement and faded road markings.",
+        },
+        {
+          title: "Paint and Plaster",
+          description:
+            "Reports of peeling, cracking, or collapsing paint and plaster, affecting walls (48%), ceilings (45%), and other parts of residential buildings.",
+        },
+        {
+          title: "Snow and Ice",
+          description:
+            "Most reports relate to snow or ice blocking sidewalks (53%), followed by snow tracked from private property onto public sidewalks (23%), and snow or ice remaining on roadways (19%).",
+        },
+        {
+          title: "Traffic Signal Conditions",
+          description:
+            "Most reports relate to malfunctioning traffic signal controllers (51%), followed by pedestrian signals and vehicle signal lamps (9% each).",
+        },
+        {
+          title: "Doors and Windows",
+          description:
+            "Reports of broken or missing doors and windows (26%), damaged locks (21%), and loose or defective fixtures (18%).",
+        },
+        {
+          title: "Encampments",
+          description:
+            "Reports related to temporary outdoor shelters or camps, often in public spaces. The dataset does not provide additional detail for this complaint category.",
+        },
+      ];
+
+      let complaintPosition = 0;
+
+      const complaintTitle = document.querySelector("#complaintTitle");
+      const complaintDescription = document.querySelector(
+        "#complaintDescription",
+      );
+      const complaintIndex = document.querySelector("#complaintIndex");
+      const complaintTotal = document.querySelector("#complaintTotal");
+      const previousButton = document.querySelector("#prevComplaint");
+      const nextButton = document.querySelector("#nextComplaint");
+
+      complaintTotal.textContent = complaints.length;
+
+      function updateComplaintCard() {
+        const currentComplaint = complaints[complaintPosition];
+        complaintTitle.textContent = currentComplaint.title;
+        complaintDescription.textContent = currentComplaint.description;
+        complaintIndex.textContent = complaintPosition + 1;
+      }
+
+      previousButton.addEventListener("click", function () {
+        complaintPosition =
+          (complaintPosition - 1 + complaints.length) % complaints.length;
+        updateComplaintCard();
+      });
+
+      nextButton.addEventListener("click", function () {
+        complaintPosition = (complaintPosition + 1) % complaints.length;
+        updateComplaintCard();
+      });
+    </script>
+  </body>
+</html>
