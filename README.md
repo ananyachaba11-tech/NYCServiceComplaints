@@ -27,7 +27,7 @@ Income data comes from the **American Community Survey (ACS)**. For this project
 
 Population data also comes from the **American Community Survey (ACS)**. I used: **B01003 — Total Population** **2024 ACS 5-Year Estimates Detailed Tables**
 
-- **\*I used **ACS 5-year estimates** instead of 1-year estimates because this project works at a smaller geographic level (zip-code). ACS 1-year estimates are more current, but they are only available for geographies with populations of 65,000 or more. ACS 5-year estimates pool 60 months of data, making them more reliable and available for smaller geographies, including neighborhood-level analysis.\***
+- **\_I used **ACS 5-year estimates** instead of 1-year estimates because this project works at a smaller geographic level (zip-code). ACS 1-year estimates are more current, but they are only available for geographies with populations of 65,000 or more. ACS 5-year estimates pool 60 months of data, making them more reliable and available for smaller geographies, including neighborhood-level analysis.\_**
 
 ---
 
