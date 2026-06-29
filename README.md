@@ -152,25 +152,31 @@ If I had more time, I would improve the project in the following ways:
 
 ## Files in this repository
 
-```text
-.
+├── README.md
 ├── index.html
 ├── style.css
+├── coverphoto.svg
+├── map1.svg
+├── map2.svg
+├── barchart1.svg
+├── barchart2.svg
+├── barchart3.svg
+├── table1.svg
+└── Data Files/
 ├── data_processing.ipynb
-├── README.md
-├── data/
-│   ├── raw/
-│   └── processed/
-└── images/
-    ├── coverphoto.png
-    ├── map1.svg
-    ├── map2.svg
-    ├── barchart1.svg
-    ├── barchart2.svg
-    └── barchart3.svg
+├── data_analysis.ipynb
+├── data_viz.ipynb
+└── Data Dictionaries/
+
 ```
 
-The exact file names may differ depending on the final project folder.
+- `index.html` contains the structure of the final webpage.
+- `style.css` contains the styling for the webpage.
+- The `.svg` files are the exported visuals used in the story.
+- `Data Files/data_processing.ipynb` contains the data cleaning and merging process.
+- `Data Files/data_analysis.ipynb` contains the main analysis.
+- `Data Files/data_viz.ipynb` contains the chart and visualization work.
+- `Data Files/Data Dictionaries/` contains reference files used to understand the datasets.
 
 ---
 
@@ -208,3 +214,9 @@ Created by **Ananya Chaba** for **The Lede Program for Data Journalism, 2026**.
 This project was created as part of my learning process in data journalism, data visualization, and web-based storytelling.
 
 It reflects not only the final analysis, but also the process of learning how to clean real-world data, make methodological decisions, design visuals, and communicate uncertainty clearly.
+
+```
+
+```
+
+```
